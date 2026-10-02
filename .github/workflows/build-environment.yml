@@ -26,7 +26,8 @@ jobs:
           extra_nix_config: |
             experimental-features = nix-command flakes
       - name: Validate Next.js starter standalone server
-        run: python3 learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/server.py --test
+        run: python3 server.py --test
+        working-directory: learning/course-browser/Array_Algorithms/Next_JS/Counter/starter
       - name: Validate, build, publish and bind immutable environment
         run: node --experimental-strip-types environment/publish.ts
         env:
