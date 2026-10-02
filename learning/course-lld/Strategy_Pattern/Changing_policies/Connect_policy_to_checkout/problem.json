@@ -1,0 +1,60 @@
+{
+  "id": "unit-policy-checkout",
+  "slug": "connect-policy-to-checkout",
+  "title": "Connect policy to checkout",
+  "type": "CODE_PROBLEM",
+  "visibility": "PUBLIC",
+  "paymentAccess": "PAID",
+  "publicationStatus": "PUBLISHED",
+  "required": true,
+  "body": "Connect the discount policy collaborator to the checkout pricing workflow so discounts apply cleanly to cart subtotals.",
+  "workspace": {
+    "mode": "project",
+    "files": [
+      {
+        "path": "src/checkout.ts",
+        "repositoryPath": "learning/course-lld/Strategy_Pattern/Changing_policies/Connect_policy_to_checkout/starter/src/checkout.ts",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "tests/functional.test.ts",
+        "repositoryPath": "learning/course-lld/Strategy_Pattern/Changing_policies/Connect_policy_to_checkout/starter/tests/functional.test.ts",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "main.ts",
+        "repositoryPath": "learning/course-lld/Strategy_Pattern/Changing_policies/Connect_policy_to_checkout/starter/main.ts",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "solution.ts",
+        "repositoryPath": "learning/course-lld/Strategy_Pattern/Changing_policies/Connect_policy_to_checkout/reference/solution.ts",
+        "audience": "REFERENCE"
+      }
+    ],
+    "tasks": [
+      {
+        "id": "run",
+        "label": "Run",
+        "role": "run",
+        "command": "node --experimental-strip-types main.ts",
+        "timeoutMs": 30000
+      },
+      {
+        "id": "test",
+        "label": "Test",
+        "role": "test",
+        "command": "node --experimental-strip-types tests/functional.test.ts",
+        "timeoutMs": 30000
+      }
+    ],
+    "previews": []
+  },
+  "hints": [
+    {
+      "id": "hint-checkout-1",
+      "title": "Inject the policy",
+      "body": "Pass the discount policy into the checkout calculator rather than hardcoding discount rules."
+    }
+  ]
+}

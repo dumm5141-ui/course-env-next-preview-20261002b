@@ -1,0 +1,65 @@
+{
+  "id": "unit-extension",
+  "slug": "extension-boundary",
+  "title": "Extensible notification routing",
+  "type": "CODE_PROBLEM",
+  "visibility": "PUBLIC",
+  "paymentAccess": "FREE",
+  "publicationStatus": "PUBLISHED",
+  "required": true,
+  "body": "Design a notification router that can accept new delivery channels without rewriting the routing workflow. Keep the public API small and make collaborators replaceable.",
+  "workspace": {
+    "mode": "project",
+    "files": [
+      {
+        "path": "src/router.ts",
+        "repositoryPath": "learning/course-lld/Strategy_Pattern/Identify_stable_roles/starter/src/router.ts",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "tests/functional.test.ts",
+        "repositoryPath": "learning/course-lld/Strategy_Pattern/Identify_stable_roles/starter/tests/functional.test.ts",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "main.ts",
+        "repositoryPath": "learning/course-lld/Strategy_Pattern/Identify_stable_roles/starter/main.ts",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "solution.ts",
+        "repositoryPath": "learning/course-lld/Strategy_Pattern/Identify_stable_roles/reference/solution.ts",
+        "audience": "REFERENCE"
+      }
+    ],
+    "tasks": [
+      {
+        "id": "run",
+        "label": "Run",
+        "role": "run",
+        "command": "node --experimental-strip-types main.ts",
+        "timeoutMs": 30000
+      },
+      {
+        "id": "test",
+        "label": "Test",
+        "role": "test",
+        "command": "node --experimental-strip-types tests/functional.test.ts",
+        "timeoutMs": 30000
+      }
+    ],
+    "previews": []
+  },
+  "hints": [
+    {
+      "id": "hint-extension-1",
+      "title": "Start with the varying capability",
+      "body": "The router does not need to know concrete channel classes. It needs only something capable of sending a message."
+    },
+    {
+      "id": "hint-extension-2",
+      "title": "Store collaborators by key",
+      "body": "Register the collaborator object and delegate to it instead of branching on channel names."
+    }
+  ]
+}

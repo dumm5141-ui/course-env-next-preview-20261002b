@@ -1,0 +1,112 @@
+{
+  "id": "unit-policy-assessment",
+  "slug": "strategy-policies-assessment",
+  "title": "Strategy policies assessment",
+  "type": "QUIZ",
+  "visibility": "PUBLIC",
+  "paymentAccess": "FREE",
+  "publicationStatus": "PUBLISHED",
+  "required": true,
+  "body": "Check your understanding of stable roles, replaceable policies, and deterministic strategy selection before continuing to the implementation exercises.",
+  "quiz": {
+    "id": "quiz-strategy-policies-assessment",
+    "title": "Strategy policies assessment",
+    "description": "A deterministic assessment covering the strategy pattern and changing policy collaborators.",
+    "passingScorePercent": 70,
+    "maxAttempts": 2,
+    "feedbackMode": "AT_END",
+    "shuffleQuestions": true,
+    "questions": [
+      {
+        "id": "policy-info",
+        "type": "INFO",
+        "prompt": "Answer the required questions. Optional questions add practice but do not prevent submission.",
+        "points": 0,
+        "required": false
+      },
+      {
+        "id": "policy-mcq",
+        "type": "MCQ",
+        "prompt": "What should remain stable when a discount policy changes?",
+        "points": 2,
+        "options": [
+          { "id": "workflow", "label": "The checkout workflow contract" },
+          { "id": "every-rule", "label": "Every concrete discount rule in the workflow" },
+          { "id": "database", "label": "The database engine implementation" }
+        ],
+        "answerKey": { "correctOptionId": "workflow" },
+        "explanation": "The strategy boundary protects the stable workflow while policy implementations can change.",
+        "required": true
+      },
+      {
+        "id": "policy-msq",
+        "type": "MSQ",
+        "prompt": "Select the properties of a useful strategy collaborator.",
+        "points": 2,
+        "options": [
+          { "id": "contract", "label": "It follows a shared contract" },
+          { "id": "replaceable", "label": "It can be replaced without rewriting orchestration" },
+          {
+            "id": "hidden-state",
+            "label": "It requires callers to know private implementation state"
+          }
+        ],
+        "answerKey": { "correctOptionIds": ["contract", "replaceable"] },
+        "explanation": "Shared contracts and replaceability are the useful properties; callers should not depend on private state.",
+        "required": true
+      },
+      {
+        "id": "policy-numeric-exact",
+        "type": "NUMERIC",
+        "prompt": "A 10% discount on 100 leaves what subtotal?",
+        "points": 1,
+        "answerKey": {
+          "numericAnswer": { "mode": "EXACT", "exactValue": 90 }
+        },
+        "explanation": "The unchanged workflow delegates the calculation to the selected policy.",
+        "required": true
+      },
+      {
+        "id": "policy-numeric-tolerance",
+        "type": "NUMERIC",
+        "prompt": "Enter an approximation of 1/3 within 0.01.",
+        "points": 1,
+        "answerKey": {
+          "numericAnswer": { "mode": "TOLERANCE", "target": 0.3333, "tolerance": 0.01 }
+        },
+        "explanation": "Tolerance answers are useful when a deterministic result has an accepted numerical approximation.",
+        "required": false
+      },
+      {
+        "id": "policy-numeric-range",
+        "type": "NUMERIC",
+        "prompt": "Enter a valid percentage from 0 through 100.",
+        "points": 1,
+        "answerKey": {
+          "numericAnswer": { "mode": "RANGE", "min": 0, "max": 100 }
+        },
+        "explanation": "Range answers express a deterministic inclusive interval.",
+        "required": false
+      },
+      {
+        "id": "policy-boolean",
+        "type": "TRUE_FALSE",
+        "prompt": "A new concrete strategy should require changing the stable checkout orchestration.",
+        "points": 1,
+        "options": [{ "id": "true", "label": "True" }, { "id": "false", "label": "False" }],
+        "answerKey": { "correctOptionId": "false" },
+        "explanation": "The strategy boundary is intended to keep the stable orchestration closed for modification.",
+        "required": true
+      },
+      {
+        "id": "policy-short-text",
+        "type": "SHORT_TEXT",
+        "prompt": "What interface name describes the shared policy contract in this course?",
+        "points": 1,
+        "answerKey": { "acceptedTexts": ["DiscountPolicy", "discount policy", "policy"] },
+        "explanation": "Short text answers are normalized and matched against the deterministic accepted values.",
+        "required": false
+      }
+    ]
+  }
+}

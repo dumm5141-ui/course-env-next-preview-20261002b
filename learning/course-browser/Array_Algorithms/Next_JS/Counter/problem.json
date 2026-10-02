@@ -1,0 +1,112 @@
+{
+  "id": "unit-nextjs-counter",
+  "slug": "nextjs-counter",
+  "title": "Build a Next.js counter page",
+  "type": "CODE_PROBLEM",
+  "visibility": "PUBLIC",
+  "paymentAccess": "FREE",
+  "publicationStatus": "PUBLISHED",
+  "required": true,
+  "body": "Add a client-side counter component to this minimal Next.js app. The counter should increment on button click and display the current value.\n\nRun `npm run dev` in the terminal to start the dev server on port **3000**, then open the **Web Preview** tab to see your changes live.",
+  "workspace": {
+    "mode": "project",
+    "files": [
+      {
+        "path": "app/page.tsx",
+        "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/app/page.tsx",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "app/counter.tsx",
+        "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/app/counter.tsx",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "app/layout.tsx",
+        "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/app/layout.tsx",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "package.json",
+        "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/package.json",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "package-lock.json",
+        "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/package-lock.json",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "next.config.ts",
+        "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/next.config.ts",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "tsconfig.json",
+        "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/tsconfig.json",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "tests/counter.test.ts",
+        "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/tests/counter.test.ts",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "server.py",
+        "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/server.py",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "counter.tsx",
+        "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/reference/counter.tsx",
+        "audience": "REFERENCE"
+      }
+    ],
+    "tasks": [
+      {
+        "id": "start",
+        "label": "Start Next.js preview server",
+        "role": "start",
+        "command": "python3 server.py",
+        "timeoutMs": 60000
+      },
+      {
+        "id": "test",
+        "label": "Run Tests",
+        "role": "test",
+        "command": "node --experimental-strip-types tests/counter.test.ts",
+        "timeoutMs": 30000
+      }
+    ],
+    "previews": [
+      {
+        "name": "Next.js App",
+        "port": 3000
+      }
+    ]
+  },
+  "hints": [
+    {
+      "id": "hint-counter-1",
+      "title": "Mark the component as a Client Component",
+      "body": "Next.js App Router renders on the server by default. Add `'use client'` at the top of counter.tsx to enable React hooks like `useState`."
+    },
+    {
+      "id": "hint-counter-2",
+      "title": "Wire up the counter state",
+      "body": "Use `useState(0)` for the count and attach an `onClick` handler that calls `setCount(c => c + 1)`.",
+      "fileChanges": [
+        {
+          "path": "app/counter.tsx",
+          "operation": "UPDATE",
+          "content": "'use client';\nimport { useState } from 'react';\n\nexport function Counter() {\n  const [count, setCount] = useState(0);\n  return (\n    <div style={{ textAlign: 'center', marginTop: '4rem' }}>\n      <h2>Count: {count}</h2>\n      <button onClick={() => setCount((c) => c + 1)}>Increment</button>\n    </div>\n  );\n}\n"
+        },
+        {
+          "path": "app/page.tsx",
+          "operation": "UPDATE",
+          "content": "import { Counter } from './counter';\n\nexport default function Page() {\n  return (\n    <main>\n      <h1>Next.js Counter</h1>\n      <Counter />\n    </main>\n  );\n}\n"
+        }
+      ]
+    }
+  ]
+}

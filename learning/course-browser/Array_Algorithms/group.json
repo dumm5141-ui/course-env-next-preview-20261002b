@@ -1,0 +1,12 @@
+{
+  "id": "group-array-algorithms",
+  "title": "Array Algorithms",
+  "children": ["Introduction.md", "Sum_positive_values", "Sliding_Windows", "Next_JS"],
+  "lessons": {
+    "Introduction.md": {
+      "id": "lesson-browser-intro",
+      "title": "Array Algorithms Introduction",
+      "required": true
+    }
+  }
+}

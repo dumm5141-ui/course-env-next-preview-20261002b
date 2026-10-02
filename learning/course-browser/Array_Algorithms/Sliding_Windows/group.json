@@ -1,0 +1,12 @@
+{
+  "id": "group-sliding-windows",
+  "title": "Sliding Windows",
+  "children": ["Window_Basics.md", "Bounded_sliding_window"],
+  "lessons": {
+    "Window_Basics.md": {
+      "id": "lesson-browser-window-basics",
+      "title": "Sliding Window Basics",
+      "required": true
+    }
+  }
+}

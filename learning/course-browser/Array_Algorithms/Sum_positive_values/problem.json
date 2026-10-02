@@ -1,0 +1,60 @@
+{
+  "id": "unit-array-sum",
+  "slug": "sum-positive-values",
+  "title": "Sum positive values",
+  "type": "CODE_PROBLEM",
+  "visibility": "PUBLIC",
+  "paymentAccess": "FREE",
+  "publicationStatus": "PUBLISHED",
+  "required": true,
+  "body": "Return the sum of the positive values in an array. Empty input returns zero.",
+  "workspace": {
+    "mode": "compact",
+    "files": [
+      {
+        "path": "src/solve.ts",
+        "repositoryPath": "learning/course-browser/Array_Algorithms/Sum_positive_values/starter/src/solve.ts",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "tests/functional.test.ts",
+        "repositoryPath": "learning/course-browser/Array_Algorithms/Sum_positive_values/starter/tests/functional.test.ts",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "main.ts",
+        "repositoryPath": "learning/course-browser/Array_Algorithms/Sum_positive_values/starter/main.ts",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "solution.ts",
+        "repositoryPath": "learning/course-browser/Array_Algorithms/Sum_positive_values/reference/solution.ts",
+        "audience": "REFERENCE"
+      }
+    ],
+    "tasks": [
+      {
+        "id": "run",
+        "label": "Run",
+        "role": "run",
+        "command": "node --experimental-strip-types main.ts",
+        "timeoutMs": 30000
+      },
+      {
+        "id": "test",
+        "label": "Test",
+        "role": "test",
+        "command": "node --experimental-strip-types tests/functional.test.ts",
+        "timeoutMs": 30000
+      }
+    ],
+    "previews": []
+  },
+  "hints": [
+    {
+      "id": "hint-sum-1",
+      "title": "Filter before adding",
+      "body": "Only values greater than zero contribute to the sum."
+    }
+  ]
+}

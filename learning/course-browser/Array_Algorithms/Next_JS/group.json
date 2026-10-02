@@ -1,0 +1,12 @@
+{
+  "id": "group-nextjs-preview",
+  "title": "Next.js Web Preview",
+  "children": ["Next_JS_Preview.md", "Counter"],
+  "lessons": {
+    "Next_JS_Preview.md": {
+      "id": "lesson-nextjs-intro",
+      "title": "Next.js Web Preview",
+      "required": true
+    }
+  }
+}

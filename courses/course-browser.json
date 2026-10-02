@@ -1,0 +1,320 @@
+{
+  "schemaVersion": 1,
+  "course": {
+    "id": "course-browser",
+    "slug": "browser-algorithms",
+    "title": "Browser Algorithms",
+    "shortDescription": "Small browser-executed exercises for validating the learning runtime.",
+    "description": "A completely free fixture course that remains useful when all premium content is removed.",
+    "visibility": "PUBLIC",
+    "publicationStatus": "PUBLISHED",
+    "topic": "Algorithms",
+    "difficulty": "BEGINNER",
+    "learningRoot": "learning/course-browser",
+    "moduleIds": ["group-array-algorithms", "group-sliding-windows", "group-nextjs-preview"]
+  },
+  "modules": [
+    {
+      "id": "group-array-algorithms",
+      "courseId": "course-browser",
+      "title": "Array Algorithms",
+      "order": 1,
+      "unitIds": ["lesson-browser-intro", "unit-array-sum"]
+    },
+    {
+      "id": "group-sliding-windows",
+      "courseId": "course-browser",
+      "title": "Sliding Windows",
+      "order": 2,
+      "unitIds": ["lesson-browser-window-basics", "unit-window"],
+      "parentModuleId": "group-array-algorithms"
+    },
+    {
+      "id": "group-nextjs-preview",
+      "courseId": "course-browser",
+      "title": "Next.js Web Preview",
+      "order": 3,
+      "unitIds": ["lesson-nextjs-intro", "unit-nextjs-counter"],
+      "parentModuleId": "group-array-algorithms"
+    }
+  ],
+  "units": [
+    {
+      "id": "lesson-browser-intro",
+      "courseId": "course-browser",
+      "moduleId": "group-array-algorithms",
+      "slug": "lesson-browser-intro",
+      "title": "Array Algorithms Introduction",
+      "type": "LESSON",
+      "visibility": "PUBLIC",
+      "paymentAccess": "FREE",
+      "publicationStatus": "PUBLISHED",
+      "required": true,
+      "order": 1,
+      "body": "# Array Algorithms Introduction\n\nWelcome to Browser Algorithms. This course exercises basic algorithmic patterns and data structures executed entirely in your browser environment.\n\nIn this first module, you will practice:\n1. **Summing positive values**: Filtering and reducing array elements while guarding against boundary cases like empty arrays.\n2. **Sliding windows**: Maintaining state across a fixed-size window over sequential elements to achieve optimal runtime efficiency.\n"
+    },
+    {
+      "id": "unit-array-sum",
+      "courseId": "course-browser",
+      "moduleId": "group-array-algorithms",
+      "slug": "sum-positive-values",
+      "title": "Sum positive values",
+      "type": "CODE_PROBLEM",
+      "visibility": "PUBLIC",
+      "paymentAccess": "FREE",
+      "publicationStatus": "PUBLISHED",
+      "required": true,
+      "order": 2,
+      "body": "Return the sum of the positive values in an array. Empty input returns zero.",
+      "workspace": {
+        "mode": "compact",
+        "files": [
+          {
+            "path": "src/solve.ts",
+            "repositoryPath": "learning/course-browser/Array_Algorithms/Sum_positive_values/starter/src/solve.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "tests/functional.test.ts",
+            "repositoryPath": "learning/course-browser/Array_Algorithms/Sum_positive_values/starter/tests/functional.test.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "main.ts",
+            "repositoryPath": "learning/course-browser/Array_Algorithms/Sum_positive_values/starter/main.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "solution.ts",
+            "repositoryPath": "learning/course-browser/Array_Algorithms/Sum_positive_values/reference/solution.ts",
+            "audience": "REFERENCE"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "run",
+            "label": "Run",
+            "role": "run",
+            "command": "node --experimental-strip-types main.ts",
+            "timeoutMs": 30000
+          },
+          {
+            "id": "test",
+            "label": "Test",
+            "role": "test",
+            "command": "node --experimental-strip-types tests/functional.test.ts",
+            "timeoutMs": 30000
+          }
+        ],
+        "previews": []
+      },
+      "hints": [
+        {
+          "id": "hint-sum-1",
+          "title": "Filter before adding",
+          "body": "Only values greater than zero contribute to the sum."
+        }
+      ]
+    },
+    {
+      "id": "lesson-browser-window-basics",
+      "courseId": "course-browser",
+      "moduleId": "group-sliding-windows",
+      "slug": "lesson-browser-window-basics",
+      "title": "Sliding Window Basics",
+      "type": "LESSON",
+      "visibility": "PUBLIC",
+      "paymentAccess": "FREE",
+      "publicationStatus": "PUBLISHED",
+      "required": true,
+      "order": 3,
+      "body": "# Sliding Window Basics\n\nA sliding window is an algorithmic technique used to perform operations on a specific window size of an array or sequence, such as finding the maximum sum of $k$ consecutive elements.\n\nInstead of recalculating the entire window sum from scratch ($O(n \\times k)$), the window slides by one element:\n1. Add the incoming element entering the window.\n2. Subtract the outgoing element leaving the window.\n\nThis reduces the overall time complexity to $O(n)$.\n"
+    },
+    {
+      "id": "unit-window",
+      "courseId": "course-browser",
+      "moduleId": "group-sliding-windows",
+      "slug": "bounded-window",
+      "title": "Bounded sliding window",
+      "type": "CODE_PROBLEM",
+      "visibility": "PUBLIC",
+      "paymentAccess": "FREE",
+      "publicationStatus": "PUBLISHED",
+      "required": false,
+      "order": 4,
+      "body": "Find the largest sum of any contiguous window of size k. Treat invalid k as an explicit error.",
+      "workspace": {
+        "mode": "compact",
+        "files": [
+          {
+            "path": "src/window.ts",
+            "repositoryPath": "learning/course-browser/Array_Algorithms/Sliding_Windows/Bounded_sliding_window/starter/src/window.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "tests/functional.test.ts",
+            "repositoryPath": "learning/course-browser/Array_Algorithms/Sliding_Windows/Bounded_sliding_window/starter/tests/functional.test.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "main.ts",
+            "repositoryPath": "learning/course-browser/Array_Algorithms/Sliding_Windows/Bounded_sliding_window/starter/main.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "solution.ts",
+            "repositoryPath": "learning/course-browser/Array_Algorithms/Sliding_Windows/Bounded_sliding_window/reference/solution.ts",
+            "audience": "REFERENCE"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "run",
+            "label": "Run",
+            "role": "run",
+            "command": "node --experimental-strip-types main.ts",
+            "timeoutMs": 30000
+          },
+          {
+            "id": "test",
+            "label": "Test",
+            "role": "test",
+            "command": "node --experimental-strip-types tests/functional.test.ts",
+            "timeoutMs": 30000
+          }
+        ],
+        "previews": []
+      },
+      "hints": []
+    },
+    {
+      "id": "lesson-nextjs-intro",
+      "courseId": "course-browser",
+      "moduleId": "group-nextjs-preview",
+      "slug": "lesson-nextjs-intro",
+      "title": "Next.js Web Preview",
+      "type": "LESSON",
+      "visibility": "PUBLIC",
+      "paymentAccess": "FREE",
+      "publicationStatus": "PUBLISHED",
+      "required": true,
+      "order": 5,
+      "body": "# Next.js Web Preview\n\nThis module demonstrates launching a full **Next.js** development server inside the TryNix Linux environment and viewing the live output in the Web Preview tab.\n\n## How it works\n\n```mermaid\nsequenceDiagram\n    participant IDE as Code-OSS IDE\n    participant VM as TryNix VM\n    participant Preview as Web Preview tab\n    IDE->>VM: npm run dev (port 3000)\n    VM-->>Preview: HTTP responses\n    Preview-->>IDE: Live page render\n```\n\nWhen you run `npm run dev` in the terminal:\n1. Next.js starts on port **3000** inside the Linux VM.\n2. The platform exposes that port and opens the **Web Preview** tab.\n3. Every file save triggers Next.js hot-reload — visible instantly in the preview.\n\n> **Tip**: The workspace terminal is fully interactive. You can run any shell command, install packages with `npm install`, and restart the dev server at will.\n"
+    },
+    {
+      "id": "unit-nextjs-counter",
+      "courseId": "course-browser",
+      "moduleId": "group-nextjs-preview",
+      "slug": "nextjs-counter",
+      "title": "Build a Next.js counter page",
+      "type": "CODE_PROBLEM",
+      "visibility": "PUBLIC",
+      "paymentAccess": "FREE",
+      "publicationStatus": "PUBLISHED",
+      "required": true,
+      "order": 6,
+      "body": "Add a client-side counter component to this minimal Next.js app. The counter should increment on button click and display the current value.\n\nRun `npm run dev` in the terminal to start the dev server on port **3000**, then open the **Web Preview** tab to see your changes live.",
+      "workspace": {
+        "mode": "project",
+        "files": [
+          {
+            "path": "app/page.tsx",
+            "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/app/page.tsx",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "app/counter.tsx",
+            "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/app/counter.tsx",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "app/layout.tsx",
+            "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/app/layout.tsx",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "package.json",
+            "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/package.json",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "package-lock.json",
+            "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/package-lock.json",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "next.config.ts",
+            "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/next.config.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "tsconfig.json",
+            "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/tsconfig.json",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "tests/counter.test.ts",
+            "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/tests/counter.test.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "server.py",
+            "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/server.py",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "counter.tsx",
+            "repositoryPath": "learning/course-browser/Array_Algorithms/Next_JS/Counter/reference/counter.tsx",
+            "audience": "REFERENCE"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "start",
+            "label": "Start Next.js preview server",
+            "role": "start",
+            "command": "python3 server.py",
+            "timeoutMs": 60000
+          },
+          {
+            "id": "test",
+            "label": "Run Tests",
+            "role": "test",
+            "command": "node --experimental-strip-types tests/counter.test.ts",
+            "timeoutMs": 30000
+          }
+        ],
+        "previews": [
+          {
+            "name": "Next.js App",
+            "port": 3000
+          }
+        ]
+      },
+      "hints": [
+        {
+          "id": "hint-counter-1",
+          "title": "Mark the component as a Client Component",
+          "body": "Next.js App Router renders on the server by default. Add `'use client'` at the top of counter.tsx to enable React hooks like `useState`."
+        },
+        {
+          "id": "hint-counter-2",
+          "title": "Wire up the counter state",
+          "body": "Use `useState(0)` for the count and attach an `onClick` handler that calls `setCount(c => c + 1)`.",
+          "fileChanges": [
+            {
+              "path": "app/counter.tsx",
+              "operation": "UPDATE",
+              "content": "'use client';\nimport { useState } from 'react';\n\nexport function Counter() {\n  const [count, setCount] = useState(0);\n  return (\n    <div style={{ textAlign: 'center', marginTop: '4rem' }}>\n      <h2>Count: {count}</h2>\n      <button onClick={() => setCount((c) => c + 1)}>Increment</button>\n    </div>\n  );\n}\n"
+            },
+            {
+              "path": "app/page.tsx",
+              "operation": "UPDATE",
+              "content": "import { Counter } from './counter';\n\nexport default function Page() {\n  return (\n    <main>\n      <h1>Next.js Counter</h1>\n      <Counter />\n    </main>\n  );\n}\n"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

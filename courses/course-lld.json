@@ -1,0 +1,525 @@
+{
+  "schemaVersion": 1,
+  "course": {
+    "id": "course-lld",
+    "slug": "practical-object-design",
+    "title": "Practical Object Design",
+    "shortDescription": "Practice object design through executable challenges and progressive hints.",
+    "description": "A hands-on fixture course used to exercise free, premium, hint, test and workspace flows.",
+    "visibility": "PUBLIC",
+    "publicationStatus": "PUBLISHED",
+    "topic": "Low-level design",
+    "difficulty": "INTERMEDIATE",
+    "learningRoot": "learning/course-lld",
+    "moduleIds": ["group-strategy-pattern", "group-changing-policies"]
+  },
+  "modules": [
+    {
+      "id": "group-strategy-pattern",
+      "courseId": "course-lld",
+      "title": "Strategy Pattern",
+      "order": 1,
+      "unitIds": ["lesson-course-lld-overview", "unit-extension", "unit-system"]
+    },
+    {
+      "id": "group-changing-policies",
+      "courseId": "course-lld",
+      "title": "Changing Policies",
+      "order": 2,
+      "unitIds": [
+        "lesson-course-lld-intro",
+        "unit-policy-assessment",
+        "unit-variable-policies",
+        "unit-policy-checkout"
+      ],
+      "parentModuleId": "group-strategy-pattern"
+    }
+  ],
+  "units": [
+    {
+      "id": "lesson-course-lld-overview",
+      "courseId": "course-lld",
+      "moduleId": "group-strategy-pattern",
+      "slug": "lesson-course-lld-overview",
+      "title": "Strategy Pattern Overview",
+      "type": "LESSON",
+      "visibility": "PUBLIC",
+      "paymentAccess": "FREE",
+      "publicationStatus": "PUBLISHED",
+      "required": true,
+      "order": 1,
+      "body": "# Strategy Pattern Overview\n\nThe Strategy Pattern enables you to define a family of algorithms, encapsulate each one as an independent collaborator, and make them interchangeable at runtime.\n\nBy separating the invariant workflow orchestration from volatile algorithmic or policy choices, your domain logic remains closed for modification yet open for extension.\n\n## Architecture & Structure\n\n```mermaid\ngraph TD\n    Client[Client / Context] -->|delegates to| Strategy[\"<<interface>> Strategy\"]\n    Strategy --> ConcreteA[ConcreteStrategyA]\n    Strategy --> ConcreteB[ConcreteStrategyB]\n    Strategy --> ConcreteC[ConcreteStrategyC]\n```\n\n## Computational Complexity & Invariants\n\nUsing dedicated policy collaborators guarantees stable runtime characteristics:\n$$\\text{Cost}(n) = \\mathcal{O}(1) \\quad \\text{vs} \\quad \\mathcal{O}(k \\cdot n)$$\n$$\\sum_{i=1}^n \\text{policy}_i(x) \\le \\text{Threshold}$$\n\n![Strategy Pattern Collaboration](/media/strategy-pattern.svg)\n\nIn this module, you will:\n1. **Identify stable roles**: isolate orchestration interfaces from concrete channel implementations.\n2. **Handle changing policies**: model variable pricing and discount strategies as interchangeable policy collaborators.\n3. **Connect policies to checkout**: inject policy collaborators into cart and checkout workflows.\n4. **Integrate the complete workflow**: coordinate policy, state, and presentation into an end-to-end service.\n",
+      "video": {
+        "provider": "youtube",
+        "sourceUrl": "https://www.youtube.com/watch?v=v9ejT8FO-7I"
+      }
+    },
+    {
+      "id": "unit-extension",
+      "courseId": "course-lld",
+      "moduleId": "group-strategy-pattern",
+      "slug": "extension-boundary",
+      "title": "Extensible notification routing",
+      "type": "CODE_PROBLEM",
+      "visibility": "PUBLIC",
+      "paymentAccess": "FREE",
+      "publicationStatus": "PUBLISHED",
+      "required": true,
+      "order": 2,
+      "body": "Design a notification router that can accept new delivery channels without rewriting the routing workflow. Keep the public API small and make collaborators replaceable.",
+      "workspace": {
+        "mode": "project",
+        "files": [
+          {
+            "path": "src/router.ts",
+            "repositoryPath": "learning/course-lld/Strategy_Pattern/Identify_stable_roles/starter/src/router.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "tests/functional.test.ts",
+            "repositoryPath": "learning/course-lld/Strategy_Pattern/Identify_stable_roles/starter/tests/functional.test.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "main.ts",
+            "repositoryPath": "learning/course-lld/Strategy_Pattern/Identify_stable_roles/starter/main.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "solution.ts",
+            "repositoryPath": "learning/course-lld/Strategy_Pattern/Identify_stable_roles/reference/solution.ts",
+            "audience": "REFERENCE"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "run",
+            "label": "Run",
+            "role": "run",
+            "command": "node --experimental-strip-types main.ts",
+            "timeoutMs": 30000
+          },
+          {
+            "id": "test",
+            "label": "Test",
+            "role": "test",
+            "command": "node --experimental-strip-types tests/functional.test.ts",
+            "timeoutMs": 30000
+          }
+        ],
+        "previews": []
+      },
+      "hints": [
+        {
+          "id": "hint-extension-1",
+          "title": "Start with the varying capability",
+          "body": "The router does not need to know concrete channel classes. It needs only something capable of sending a message."
+        },
+        {
+          "id": "hint-extension-2",
+          "title": "Store collaborators by key",
+          "body": "A map of channels keyed by channel name lets callers register new capabilities at runtime."
+        }
+      ]
+    },
+    {
+      "id": "lesson-course-lld-intro",
+      "courseId": "course-lld",
+      "moduleId": "group-changing-policies",
+      "slug": "lesson-course-lld-intro",
+      "title": "Changing Policies",
+      "type": "LESSON",
+      "visibility": "PUBLIC",
+      "paymentAccess": "FREE",
+      "publicationStatus": "PUBLISHED",
+      "required": true,
+      "order": 4,
+      "body": "# Changing Policies\n\nIn real-world business domains, pricing, discounting, and promotional rules change frequently. Hardcoding these rules into core transactional workflows causes coupling and regression risks.\n\nBy applying the Strategy Pattern to policies:\n- Each calculation rule is encapsulated behind a shared policy interface.\n- New discounting mechanisms can be introduced without touching existing ordering or billing code.\n- Different policies can be composed or selected dynamically based on user tier, seasonal campaigns, or cart attributes.\n"
+    },
+    {
+      "id": "unit-policy-assessment",
+      "courseId": "course-lld",
+      "moduleId": "group-changing-policies",
+      "slug": "strategy-policies-assessment",
+      "title": "Strategy policies assessment",
+      "type": "QUIZ",
+      "visibility": "PUBLIC",
+      "paymentAccess": "FREE",
+      "publicationStatus": "PUBLISHED",
+      "required": true,
+      "order": 5,
+      "body": "Check your understanding of stable roles, replaceable policies, and deterministic strategy selection before continuing to the implementation exercises.",
+      "quiz": {
+        "id": "quiz-strategy-policies-assessment",
+        "title": "Strategy policies assessment",
+        "description": "A deterministic assessment covering the strategy pattern and changing policy collaborators.",
+        "passingScorePercent": 70,
+        "maxAttempts": 2,
+        "feedbackMode": "AT_END",
+        "shuffleQuestions": true,
+        "questions": [
+          {
+            "id": "policy-info",
+            "type": "INFO",
+            "prompt": "Answer the required questions. Optional questions add practice but do not prevent submission.",
+            "points": 0,
+            "required": false
+          },
+          {
+            "id": "policy-mcq",
+            "type": "MCQ",
+            "prompt": "What should remain stable when a discount policy changes?",
+            "points": 2,
+            "options": [
+              {
+                "id": "workflow",
+                "label": "The checkout workflow contract"
+              },
+              {
+                "id": "every-rule",
+                "label": "Every concrete discount rule in the workflow"
+              },
+              {
+                "id": "database",
+                "label": "The database engine implementation"
+              }
+            ],
+            "answerKey": {
+              "correctOptionId": "workflow"
+            },
+            "explanation": "The strategy boundary protects the stable workflow while policy implementations can change.",
+            "required": true
+          },
+          {
+            "id": "policy-msq",
+            "type": "MSQ",
+            "prompt": "Select the properties of a useful strategy collaborator.",
+            "points": 2,
+            "options": [
+              {
+                "id": "contract",
+                "label": "It follows a shared contract"
+              },
+              {
+                "id": "replaceable",
+                "label": "It can be replaced without rewriting orchestration"
+              },
+              {
+                "id": "hidden-state",
+                "label": "It requires callers to know private implementation state"
+              }
+            ],
+            "answerKey": {
+              "correctOptionIds": ["contract", "replaceable"]
+            },
+            "explanation": "Shared contracts and replaceability are the useful properties; callers should not depend on private state.",
+            "required": true
+          },
+          {
+            "id": "policy-numeric-exact",
+            "type": "NUMERIC",
+            "prompt": "A 10% discount on 100 leaves what subtotal?",
+            "points": 1,
+            "answerKey": {
+              "numericAnswer": {
+                "mode": "EXACT",
+                "exactValue": 90
+              }
+            },
+            "explanation": "The unchanged workflow delegates the calculation to the selected policy.",
+            "required": true
+          },
+          {
+            "id": "policy-numeric-tolerance",
+            "type": "NUMERIC",
+            "prompt": "Enter an approximation of 1/3 within 0.01.",
+            "points": 1,
+            "answerKey": {
+              "numericAnswer": {
+                "mode": "TOLERANCE",
+                "target": 0.3333,
+                "tolerance": 0.01
+              }
+            },
+            "explanation": "Tolerance answers are useful when a deterministic result has an accepted numerical approximation.",
+            "required": false
+          },
+          {
+            "id": "policy-numeric-range",
+            "type": "NUMERIC",
+            "prompt": "Enter a valid percentage from 0 through 100.",
+            "points": 1,
+            "answerKey": {
+              "numericAnswer": {
+                "mode": "RANGE",
+                "min": 0,
+                "max": 100
+              }
+            },
+            "explanation": "Range answers express a deterministic inclusive interval.",
+            "required": false
+          },
+          {
+            "id": "policy-boolean",
+            "type": "TRUE_FALSE",
+            "prompt": "A new concrete strategy should require changing the stable checkout orchestration.",
+            "points": 1,
+            "options": [
+              {
+                "id": "true",
+                "label": "True"
+              },
+              {
+                "id": "false",
+                "label": "False"
+              }
+            ],
+            "answerKey": {
+              "correctOptionId": "false"
+            },
+            "explanation": "The strategy boundary is intended to keep the stable orchestration closed for modification.",
+            "required": true
+          },
+          {
+            "id": "policy-short-text",
+            "type": "SHORT_TEXT",
+            "prompt": "What interface name describes the shared policy contract in this course?",
+            "points": 1,
+            "answerKey": {
+              "acceptedTexts": ["DiscountPolicy", "discount policy", "policy"]
+            },
+            "explanation": "Short text answers are normalized and matched against the deterministic accepted values.",
+            "required": false
+          }
+        ]
+      }
+    },
+    {
+      "id": "unit-variable-policies",
+      "courseId": "course-lld",
+      "moduleId": "group-changing-policies",
+      "slug": "variable-discount-policies",
+      "title": "Identify variable discount policies",
+      "type": "CODE_PROBLEM",
+      "visibility": "PUBLIC",
+      "paymentAccess": "PAID",
+      "publicationStatus": "PUBLISHED",
+      "required": true,
+      "order": 6,
+      "body": "Model variable discount policies as replaceable strategy collaborators. Implement a percentage discount and flat discount that conform to the policy interface.",
+      "workspace": {
+        "mode": "project",
+        "files": [
+          {
+            "path": "src/policy.ts",
+            "repositoryPath": "learning/course-lld/Strategy_Pattern/Changing_policies/Identify_variable_policies/starter/src/policy.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "tests/functional.test.ts",
+            "repositoryPath": "learning/course-lld/Strategy_Pattern/Changing_policies/Identify_variable_policies/starter/tests/functional.test.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "main.ts",
+            "repositoryPath": "learning/course-lld/Strategy_Pattern/Changing_policies/Identify_variable_policies/starter/main.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "solution.ts",
+            "repositoryPath": "learning/course-lld/Strategy_Pattern/Changing_policies/Identify_variable_policies/reference/solution.ts",
+            "audience": "REFERENCE"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "run",
+            "label": "Run",
+            "role": "run",
+            "command": "node --experimental-strip-types main.ts",
+            "timeoutMs": 30000
+          },
+          {
+            "id": "test",
+            "label": "Test",
+            "role": "test",
+            "command": "node --experimental-strip-types tests/functional.test.ts",
+            "timeoutMs": 30000
+          }
+        ],
+        "previews": []
+      },
+      "hints": [
+        {
+          "id": "hint-policy-1",
+          "title": "Define the policy contract",
+          "body": "Both flat and percentage discounts should implement an `apply(amount: number): number` method. Apply this hint to see both implementation files updated at once.",
+          "fileChanges": [
+            {
+              "path": "src/policy.ts",
+              "operation": "UPDATE",
+              "content": "export interface DiscountPolicy {\n  applyDiscount(subtotal: number): number;\n}\n\nexport class PercentageDiscountPolicy implements DiscountPolicy {\n  constructor(readonly percentage: number) {\n    if (percentage < 0 || percentage > 100) throw new Error(\"Invalid percentage\");\n  }\n  applyDiscount(subtotal: number): number {\n    return subtotal * (1 - this.percentage / 100);\n  }\n}\n\nexport class FlatDiscountPolicy implements DiscountPolicy {\n  constructor(readonly amount: number) {\n    if (amount < 0) throw new Error(\"Invalid amount\");\n  }\n  applyDiscount(subtotal: number): number {\n    return Math.max(0, subtotal - this.amount);\n  }\n}\n"
+            },
+            {
+              "path": "main.ts",
+              "operation": "UPDATE",
+              "content": "import { FlatDiscountPolicy, PercentageDiscountPolicy } from \"./src/policy.ts\";\n\nconst pct = new PercentageDiscountPolicy(10);\nconsole.log(\"10% off £100 ->\", pct.applyDiscount(100));  // 90\n\nconst flat = new FlatDiscountPolicy(15);\nconsole.log(\"£15 off £100 ->\", flat.applyDiscount(100)); // 85\nconsole.log(\"£15 off £10  ->\", flat.applyDiscount(10));  // 0 (floor at 0)\n"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unit-policy-checkout",
+      "courseId": "course-lld",
+      "moduleId": "group-changing-policies",
+      "slug": "connect-policy-to-checkout",
+      "title": "Connect policy to checkout",
+      "type": "CODE_PROBLEM",
+      "visibility": "PUBLIC",
+      "paymentAccess": "PAID",
+      "publicationStatus": "PUBLISHED",
+      "required": true,
+      "order": 7,
+      "body": "Connect the discount policy collaborator to the checkout pricing workflow so discounts apply cleanly to cart subtotals.",
+      "workspace": {
+        "mode": "project",
+        "files": [
+          {
+            "path": "src/checkout.ts",
+            "repositoryPath": "learning/course-lld/Strategy_Pattern/Changing_policies/Connect_policy_to_checkout/starter/src/checkout.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "tests/functional.test.ts",
+            "repositoryPath": "learning/course-lld/Strategy_Pattern/Changing_policies/Connect_policy_to_checkout/starter/tests/functional.test.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "main.ts",
+            "repositoryPath": "learning/course-lld/Strategy_Pattern/Changing_policies/Connect_policy_to_checkout/starter/main.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "solution.ts",
+            "repositoryPath": "learning/course-lld/Strategy_Pattern/Changing_policies/Connect_policy_to_checkout/reference/solution.ts",
+            "audience": "REFERENCE"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "run",
+            "label": "Run",
+            "role": "run",
+            "command": "node --experimental-strip-types main.ts",
+            "timeoutMs": 30000
+          },
+          {
+            "id": "test",
+            "label": "Test",
+            "role": "test",
+            "command": "node --experimental-strip-types tests/functional.test.ts",
+            "timeoutMs": 30000
+          }
+        ],
+        "previews": []
+      },
+      "hints": [
+        {
+          "id": "hint-checkout-1",
+          "title": "Inject the policy",
+          "body": "Pass the discount policy into the checkout calculator rather than hardcoding discount rules."
+        }
+      ]
+    },
+    {
+      "id": "unit-system",
+      "courseId": "course-lld",
+      "moduleId": "group-strategy-pattern",
+      "slug": "parking-allocation",
+      "title": "Parking allocation workflow",
+      "type": "CODE_PROBLEM",
+      "visibility": "PUBLIC",
+      "paymentAccess": "PAID",
+      "publicationStatus": "PUBLISHED",
+      "required": true,
+      "order": 3,
+      "body": "Model a small parking allocation workflow that keeps allocation policy separate from ticket persistence. The stress test should be able to replace either collaborator.",
+      "workspace": {
+        "mode": "project",
+        "files": [
+          {
+            "path": "src/parking.ts",
+            "repositoryPath": "learning/course-lld/Strategy_Pattern/Integrate_the_workflow/starter/src/parking.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "tests/functional.test.ts",
+            "repositoryPath": "learning/course-lld/Strategy_Pattern/Integrate_the_workflow/starter/tests/functional.test.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "main.ts",
+            "repositoryPath": "learning/course-lld/Strategy_Pattern/Integrate_the_workflow/starter/main.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "server.ts",
+            "repositoryPath": "learning/course-lld/Strategy_Pattern/Integrate_the_workflow/starter/server.ts",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "web/index.html",
+            "repositoryPath": "learning/course-lld/Strategy_Pattern/Integrate_the_workflow/starter/web/index.html",
+            "audience": "LEARNER"
+          },
+          {
+            "path": "solution.ts",
+            "repositoryPath": "learning/course-lld/Strategy_Pattern/Integrate_the_workflow/reference/solution.ts",
+            "audience": "REFERENCE"
+          }
+        ],
+        "tasks": [
+          {
+            "id": "run",
+            "label": "Run",
+            "role": "run",
+            "command": "node --experimental-strip-types main.ts",
+            "timeoutMs": 30000
+          },
+          {
+            "id": "test",
+            "label": "Test",
+            "role": "test",
+            "command": "node --experimental-strip-types tests/functional.test.ts",
+            "timeoutMs": 30000
+          },
+          {
+            "id": "start",
+            "label": "Start server",
+            "role": "start",
+            "command": "node --experimental-strip-types server.ts",
+            "timeoutMs": 30000
+          }
+        ],
+        "previews": [
+          {
+            "name": "Next.js Web Preview",
+            "port": 3000
+          },
+          {
+            "name": "Parking application",
+            "port": 8080
+          }
+        ]
+      },
+      "hints": [
+        {
+          "id": "hint-system-1",
+          "title": "Keep policy and persistence separate",
+          "body": "The service coordinates a workflow. Allocation policy and ticket storage should be supplied collaborators."
+        }
+      ]
+    }
+  ]
+}

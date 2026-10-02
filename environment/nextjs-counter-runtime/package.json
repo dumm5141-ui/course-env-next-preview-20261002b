@@ -1,0 +1,14 @@
+{
+  "name": "nextjs-counter-runtime",
+  "version": "15.5.26",
+  "private": true,
+  "dependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "next": "15.5.26",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5"
+  }
+}

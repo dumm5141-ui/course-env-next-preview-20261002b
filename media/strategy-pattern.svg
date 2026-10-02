@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 280" width="480" height="280">
+  <title>Strategy Pattern Collaboration Diagram</title>
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6366f1"/>
+    </marker>
+  </defs>
+  <!-- Background -->
+  <rect width="480" height="280" fill="#0f172a" rx="12"/>
+
+  <!-- Context / Client box -->
+  <rect x="20" y="100" width="120" height="56" rx="8" fill="#1e293b" stroke="#6366f1" stroke-width="1.5"/>
+  <text x="80" y="126" text-anchor="middle" fill="#e2e8f0" font-size="13" font-family="system-ui,sans-serif">Context</text>
+  <text x="80" y="143" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="system-ui,sans-serif">(holds strategy ref)</text>
+
+  <!-- Strategy Interface box -->
+  <rect x="190" y="100" width="130" height="56" rx="8" fill="#1e293b" stroke="#818cf8" stroke-width="1.5"/>
+  <text x="255" y="121" text-anchor="middle" fill="#c7d2fe" font-size="10" font-family="system-ui,sans-serif">«interface»</text>
+  <text x="255" y="137" text-anchor="middle" fill="#e2e8f0" font-size="13" font-family="system-ui,sans-serif">Strategy</text>
+  <text x="255" y="151" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="system-ui,sans-serif">execute(): void</text>
+
+  <!-- Concrete A -->
+  <rect x="360" y="30" width="100" height="44" rx="8" fill="#1e293b" stroke="#34d399" stroke-width="1.5"/>
+  <text x="410" y="48" text-anchor="middle" fill="#6ee7b7" font-size="10" font-family="system-ui,sans-serif">ConcreteA</text>
+  <text x="410" y="62" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="system-ui,sans-serif">execute()</text>
+
+  <!-- Concrete B -->
+  <rect x="360" y="118" width="100" height="44" rx="8" fill="#1e293b" stroke="#34d399" stroke-width="1.5"/>
+  <text x="410" y="136" text-anchor="middle" fill="#6ee7b7" font-size="10" font-family="system-ui,sans-serif">ConcreteB</text>
+  <text x="410" y="150" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="system-ui,sans-serif">execute()</text>
+
+  <!-- Concrete C -->
+  <rect x="360" y="206" width="100" height="44" rx="8" fill="#1e293b" stroke="#34d399" stroke-width="1.5"/>
+  <text x="410" y="224" text-anchor="middle" fill="#6ee7b7" font-size="10" font-family="system-ui,sans-serif">ConcreteC</text>
+  <text x="410" y="238" text-anchor="middle" fill="#94a3b8" font-size="10" font-family="system-ui,sans-serif">execute()</text>
+
+  <!-- Arrow: Context -> Strategy -->
+  <line x1="140" y1="128" x2="188" y2="128" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="164" y="122" text-anchor="middle" fill="#818cf8" font-size="9" font-family="system-ui,sans-serif">delegates</text>
+
+  <!-- Arrow: Strategy -> ConcreteA -->
+  <line x1="320" y1="118" x2="358" y2="62" stroke="#818cf8" stroke-width="1.5" stroke-dasharray="4 2" marker-end="url(#arrow)"/>
+  <!-- Arrow: Strategy -> ConcreteB -->
+  <line x1="320" y1="128" x2="358" y2="140" stroke="#818cf8" stroke-width="1.5" stroke-dasharray="4 2" marker-end="url(#arrow)"/>
+  <!-- Arrow: Strategy -> ConcreteC -->
+  <line x1="320" y1="138" x2="358" y2="218" stroke="#818cf8" stroke-width="1.5" stroke-dasharray="4 2" marker-end="url(#arrow)"/>
+
+  <!-- Legend -->
+  <text x="240" y="268" text-anchor="middle" fill="#475569" font-size="10" font-family="system-ui,sans-serif">Strategy Pattern — collaborator collaboration diagram</text>
+</svg>

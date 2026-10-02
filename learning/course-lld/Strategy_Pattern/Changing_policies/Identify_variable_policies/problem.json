@@ -1,0 +1,72 @@
+{
+  "id": "unit-variable-policies",
+  "slug": "variable-discount-policies",
+  "title": "Identify variable discount policies",
+  "type": "CODE_PROBLEM",
+  "visibility": "PUBLIC",
+  "paymentAccess": "PAID",
+  "publicationStatus": "PUBLISHED",
+  "required": true,
+  "body": "Model variable discount policies as replaceable strategy collaborators. Implement a percentage discount and flat discount that conform to the policy interface.",
+  "workspace": {
+    "mode": "project",
+    "files": [
+      {
+        "path": "src/policy.ts",
+        "repositoryPath": "learning/course-lld/Strategy_Pattern/Changing_policies/Identify_variable_policies/starter/src/policy.ts",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "tests/functional.test.ts",
+        "repositoryPath": "learning/course-lld/Strategy_Pattern/Changing_policies/Identify_variable_policies/starter/tests/functional.test.ts",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "main.ts",
+        "repositoryPath": "learning/course-lld/Strategy_Pattern/Changing_policies/Identify_variable_policies/starter/main.ts",
+        "audience": "LEARNER"
+      },
+      {
+        "path": "solution.ts",
+        "repositoryPath": "learning/course-lld/Strategy_Pattern/Changing_policies/Identify_variable_policies/reference/solution.ts",
+        "audience": "REFERENCE"
+      }
+    ],
+    "tasks": [
+      {
+        "id": "run",
+        "label": "Run",
+        "role": "run",
+        "command": "node --experimental-strip-types main.ts",
+        "timeoutMs": 30000
+      },
+      {
+        "id": "test",
+        "label": "Test",
+        "role": "test",
+        "command": "node --experimental-strip-types tests/functional.test.ts",
+        "timeoutMs": 30000
+      }
+    ],
+    "previews": []
+  },
+  "hints": [
+    {
+      "id": "hint-policy-1",
+      "title": "Define the policy contract",
+      "body": "Both flat and percentage discounts should implement an apply(amount: number): number method.",
+      "fileChanges": [
+        {
+          "path": "src/policy.ts",
+          "operation": "UPDATE",
+          "content": "export interface DiscountPolicy {\n  apply(amount: number): number;\n}\n\nexport class PercentageDiscount implements DiscountPolicy {\n  constructor(readonly percent: number) {}\n  apply(amount: number): number {\n    return amount * (1 - this.percent / 100);\n  }\n}\n"
+        }
+      ]
+    },
+    {
+      "id": "hint-policy-2",
+      "title": "Prevent negative totals",
+      "body": "Ensure the discount calculation cannot reduce the payable amount below zero."
+    }
+  ]
+}

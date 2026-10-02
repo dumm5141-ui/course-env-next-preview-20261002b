@@ -1,0 +1,81 @@
+{
+  "schemaVersion": 1,
+  "challenge": {
+    "id": "challenge-premium-standalone",
+    "slug": "premium-parking-strategy",
+    "title": "Premium parking strategy challenge",
+    "description": "A premium standalone fixture used to validate paid challenge access independently of course enrollment.",
+    "topic": "Low-level design",
+    "difficulty": "ADVANCED",
+    "visibility": "PUBLIC",
+    "paymentAccess": "PAID",
+    "publicationStatus": "PUBLISHED",
+    "hints": [],
+    "starterCode": {},
+    "tests": [],
+    "workspace": {
+      "mode": "project",
+      "files": [
+        {
+          "path": "src/parking.ts",
+          "repositoryPath": "learning/course-lld/Strategy_Pattern/Integrate_the_workflow/starter/src/parking.ts",
+          "audience": "LEARNER"
+        },
+        {
+          "path": "tests/functional.test.ts",
+          "repositoryPath": "learning/course-lld/Strategy_Pattern/Integrate_the_workflow/starter/tests/functional.test.ts",
+          "audience": "LEARNER"
+        },
+        {
+          "path": "main.ts",
+          "repositoryPath": "learning/course-lld/Strategy_Pattern/Integrate_the_workflow/starter/main.ts",
+          "audience": "LEARNER"
+        },
+        {
+          "path": "server.ts",
+          "repositoryPath": "learning/course-lld/Strategy_Pattern/Integrate_the_workflow/starter/server.ts",
+          "audience": "LEARNER"
+        },
+        {
+          "path": "web/index.html",
+          "repositoryPath": "learning/course-lld/Strategy_Pattern/Integrate_the_workflow/starter/web/index.html",
+          "audience": "LEARNER"
+        },
+        {
+          "path": "solution.ts",
+          "repositoryPath": "learning/course-lld/Strategy_Pattern/Integrate_the_workflow/reference/solution.ts",
+          "audience": "REFERENCE"
+        }
+      ],
+      "tasks": [
+        {
+          "id": "run",
+          "label": "Run",
+          "role": "run",
+          "command": "node --experimental-strip-types main.ts",
+          "timeoutMs": 30000
+        },
+        {
+          "id": "test",
+          "label": "Test",
+          "role": "test",
+          "command": "node --experimental-strip-types tests/functional.test.ts",
+          "timeoutMs": 30000
+        },
+        {
+          "id": "start",
+          "label": "Start server",
+          "role": "start",
+          "command": "node --experimental-strip-types server.ts",
+          "timeoutMs": 30000
+        }
+      ],
+      "previews": [
+        {
+          "name": "Parking application",
+          "port": 8080
+        }
+      ]
+    }
+  }
+}

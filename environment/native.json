@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "architecture": "x86_64",
+  "runtime": "trynix-qemu-wasm",
+  "storePaths": ["/nix/store/p8wnn48gi30j0n0a6ispjinnb6ykz28i-nodejs-22.23.2"],
+  "caches": [
+    {
+      "url": "https://cache.nixos.org",
+      "key": "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+    }
+  ],
+  "environment": {
+    "NODE_NO_WARNINGS": "1",
+    "NO_COLOR": "1"
+  }
+}

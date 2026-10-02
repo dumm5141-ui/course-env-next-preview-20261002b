@@ -1,0 +1,17 @@
+{
+  "id": "group-strategy-pattern",
+  "title": "Strategy Pattern",
+  "children": [
+    "Overview.md",
+    "Identify_stable_roles",
+    "Changing_policies",
+    "Integrate_the_workflow"
+  ],
+  "lessons": {
+    "Overview.md": {
+      "id": "lesson-course-lld-overview",
+      "title": "Strategy Pattern Overview",
+      "required": true
+    }
+  }
+}
