@@ -1,0 +1,39 @@
+name: Build learner environment
+on:
+  push:
+  workflow_dispatch:
+permissions:
+  contents: read
+  id-token: write
+concurrency:
+  group: environment-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  publish:
+    # GitHub-hosted x86-64 Linux runner with pinned Nix and Node 24
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - uses: cachix/install-nix-action@v27
+        with:
+          nix_path: nixpkgs=channel:nixos-unstable
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+      - name: Validate Next.js starter standalone server
+        run: python3 learning/course-browser/Array_Algorithms/Next_JS/Counter/starter/server.py --test
+      - name: Validate, build, publish and bind immutable environment
+        run: node --experimental-strip-types environment/publish.ts
+        env:
+          PLATFORM_URL: "https://lemon-bush-012995200.3.azurestaticapps.net"
+          PLATFORM_RESOURCE_IDS: "a75caf77c6e1635d100302881016cecc,a654cc29dcd5f96f57edfab5999ec816,d63450db78ddc5a977e372af12493a56,47515cef617ab6797a7f2b63d185c5e8"
+          CACHE_PUBLIC_URL: ${{ vars.CACHE_PUBLIC_URL }}
+          CACHE_UPLOAD_URL: ${{ vars.CACHE_UPLOAD_URL }}
+          NIX_PUBLIC_KEY: ${{ vars.NIX_PUBLIC_KEY }}
+          NIX_SIGNING_KEY: ${{ secrets.NIX_SIGNING_KEY }}
+          CACHE_UPLOAD_TOKEN: ${{ secrets.CACHE_UPLOAD_TOKEN }}
