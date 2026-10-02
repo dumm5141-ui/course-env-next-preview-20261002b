@@ -2,7 +2,10 @@
   "version": 1,
   "architecture": "x86_64",
   "runtime": "trynix-qemu-wasm",
-  "storePaths": ["/nix/store/p8wnn48gi30j0n0a6ispjinnb6ykz28i-nodejs-22.23.2"],
+  "storePaths": [
+    "/nix/store/p8wnn48gi30j0n0a6ispjinnb6ykz28i-nodejs-22.23.2",
+    "/nix/store/bszqvgwpxb1gq1xpx8s6qv92wgb9dqli-python3-3.12.14"
+  ],
   "caches": [
     {
       "url": "https://cache.nixos.org",
