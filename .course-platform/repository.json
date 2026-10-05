@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "managedBy": "course-platform",
+  "mode": "existing",
+  "contentRoots": [
+    "courses",
+    "challenges"
+  ]
+}
