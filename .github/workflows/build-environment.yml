@@ -1,3 +1,4 @@
+# course-platform-managed:environment-v1
 name: Build learner environment
 on:
   push:
